@@ -90,7 +90,8 @@ signature_score_plot<-function(sign_score,title,my_palette,comparisons=".all.",y
       ref.group = comparisons,
       method = Test_Methods,
       hide.ns =hide_ns,
-      label=sign_label
+      label=sign_label,
+      size=10
     )
   } else{
     # Alternatively, perform differential testing between any two groups, and use horizontal lines to indicate the tested pairs.
@@ -98,7 +99,8 @@ signature_score_plot<-function(sign_score,title,my_palette,comparisons=".all.",y
       comparisons = comparisons,
       method = Test_Methods,
       hide.ns =hide_ns,
-      label=sign_label
+      label=sign_label,
+      size=10
     )
   }
   
