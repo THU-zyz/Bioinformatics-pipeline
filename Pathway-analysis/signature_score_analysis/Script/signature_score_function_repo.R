@@ -40,6 +40,7 @@ gene_matrix_preprocessing<-function(gene_matrix,geneList,sample_info,gene_efflen
     gene_expression[,-c(1,2)]<-gene_expression[,-c(1,2)]*gene_expression$Weight
     gene_expression<-gene_expression%>%dplyr::select(-Weight)
   }
+  gene_expression<-na.omit(gene_expression)
   return(gene_expression)
 }
 
@@ -73,7 +74,7 @@ signature_score_plot<-function(sign_score,title,my_palette,comparisons=".all.",y
   summary_data<-sign_score%>%group_by(group)%>%summarize(mean_score=mean(sign_score),sd_score=sd(sign_score),se_score=sd(sign_score)/sqrt(length(sign_score)))
   # 1) Generate scatter plots, error bars, and crossbars.
   p1<-sign_score%>%ggplot(aes(x=group,y=sign_score,color=group))+
-    geom_point(aes(color =group),size=1,position = position_jitterdodge(dodge.width=0.1,jitter.width = 0.2))+
+    geom_point(aes(color =group),size=4,position = position_jitterdodge(dodge.width=0.1,jitter.width = 0.2))+
     geom_errorbar(data=summary_data,
                   aes(x=group,y=mean_score,ymin=mean_score-se_score,ymax=mean_score+se_score,color=group),
                   position=position_dodge(width=0.4),
@@ -126,4 +127,41 @@ signature_score_plot<-function(sign_score,title,my_palette,comparisons=".all.",y
     scale_color_manual(values=my_palette)+ggtitle(title)
   
   return(p3)
+}
+
+run_signature_score_analysis<-function(expression_path,pathway_path,sample_info_path,gene_efflen_path,my_palette,comparisons,pathway_name,plot_title,data_name){
+  ## 1) Data loading section.
+  # 1.1) gene expression matrix
+  expression<-read.table(expression_path,header = TRUE)
+  expression<-expression%>%dplyr::select(ENSEMBL=gene_id,everything())
+  # 1.2) To establish a general "embryonic pausing signature",
+  # First measured DE in each embryonic model independently
+  # Gene sigificantly dysregulated in both models were selected for the signature
+  # Other Gene signatures such as mTORC1 response were obtained from the MSigDB "Hallmark gene sets"
+  sign_gene<-read.xlsx(pathway_path,sheet = 1)
+  sign_gene<-sign_gene%>%dplyr::select(SYMBOL=Gene,everything())
+  # the expression value was multiplied by -1 if the gene was downregulated in the embryonic models,
+  # while the value of genes upregulated in the embryonic models was kept unchanged，
+  ### ==so that a positive expression value would always reflect a change similar to embryonic pausing.== 
+  # 1.3) create a sample imformation matrix
+  sample_info<-read.csv(sample_info_path,header=T,)
+  
+  # 1.4) Read the matrix of effective gene lengths for calculating TPM
+  gene_efflen<-read.csv(gene_efflen_path)
+  
+  ## 2) Data processing section.
+  # 2.1) perform data processing on gene expression matrix.
+  gene_expression<-gene_matrix_preprocessing(expression,sign_gene,sample_info,gene_efflen)
+  # 2.2) calculation signature score.
+  sign_score<-signature_score(gene_expression,sample_info)
+  # save sign_score
+  write.csv(sign_score,paste0("Result/Signature_score_for_",pathway_name,"_using_",data_name,".csv"),row.names = F)
+  # 2.3) plot signature boxplot
+  plot<-signature_score_plot(sign_score,title=plot_title,my_palette,comparisons=comparisons,ylab="Signature Score",Test_Methods="t.test",hide_ns=T,sign_label="p.signif")
+  # 2.4) save the figure.
+  
+  ggsave(plot,device = cairo_pdf,
+         path="Result/Figure/",
+         filename = paste0(data_name,"_signature_score_for_",pathway_name,"_plot.pdf"),width = 8,height = 10,units ="in")
+  return(plot)
 }
