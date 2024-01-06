@@ -6,7 +6,7 @@ library(clusterProfiler)
 library(ggsci)
 
 rm(list=ls())
-setwd("~/Desktop/DTP/signature_score_analysis/Standrand/")
+setwd("./")
 # Invoke custom fuction library
 source('Script/count2TPM.R')
 source('Script/signature_score_function_repo.R')
