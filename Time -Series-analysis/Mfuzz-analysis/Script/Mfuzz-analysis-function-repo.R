@@ -21,7 +21,7 @@ count2tpm<-function(gene_matrix,gene_efflen){
 # Dataloader function 
 MDataLoader<-function(files,sheetnames){
   # Data preprocessing
-  Data<-read_excel(files,sheet=sheetnames)
+  Data<-read.xlsx(files,sheet=sheetnames)
   Data<-as.data.frame(t(Data))
   colnames(Data)<-Data[1,]
   Data<-Data[-1,]
@@ -147,6 +147,7 @@ ENSEMBL2SYMBOL<-function(gene_matrix,OrgDb = "org.Hs.eg.db"){
 
 Mfuzz_KW<-function(paras,files,sheetnames,output_name,pvalue_threshold,labels,Mfuzz_number){
   KW.DunnNdf.test<-KW_test(paras,files,sheetnames,output_name)
+  type=paras[["type"]]
   KW.Dunn<-KW.DunnNdf.test$KW.Dunn
   df.test<-KW.DunnNdf.test$df.test
   # selected feature for clustering based on p-value threshold

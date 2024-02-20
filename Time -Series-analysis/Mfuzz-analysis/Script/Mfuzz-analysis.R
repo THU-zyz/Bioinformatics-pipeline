@@ -9,8 +9,9 @@ library(Mfuzz)
 library(openxlsx)
 library(clusterProfiler)
 library(org.Hs.eg.db)
+library(dunn.test)
 rm(list=ls())
-setwd("Mfuzz-analysis/")
+setwd("~/Desktop/博士生活/科研生活/Hu_lab/Github/Bioinformatics-pipeline/Time -Series-analysis/Mfuzz-analysis/")
 source("Script/Mfuzz-analysis-function-repo.R")
 
 # For metabolomic data, it can be directly imported for calculating
@@ -24,9 +25,9 @@ source("Script/Mfuzz-analysis-function-repo.R")
 # For metabolomic data
 paras<-list()
 paras[["type"]]<-"Metabolomics"
-files="Data/Metabolomics/PDX-KW-test.xlsx"
+files="P25-PDO-Mfuzz.xlsx"
 sheetnames<-"Sheet1"
-output_name<-"PDX-Mfuzz-Meta"
+output_name<-"P25-Mfuzz-Meta"
 pvalue_threshold<-0.1
 Mfuzz_number<-4
 labels<-c("Untreated","Phase1","Phase2","Phase3","Phase4","Phase5")
@@ -49,5 +50,6 @@ Mfuzz_number<-4
 labels<-c("Untreated","Phase1","Phase2","Phase4","Phase5")
 
 Transcriptions_Mfuzz<-Mfuzz_KW(paras,files,sheetnames,output_name,pvalue_threshold,labels,Mfuzz_number)
+
 
 
