@@ -1,0 +1,2 @@
+File	Label	Reads	Mapped	Percentage	TotalsgRNAs	Zerocounts	GiniIndex	NegSelQC	NegSelQCPval	NegSelQCPvalPermutation	NegSelQCPvalPermutationFDR	NegSelQCGene
+/public3/home/scg8403/Data/sgRNA/Data/Library-plasmid-PCR2-product_L3.fq	PCR2	3219416	2827086	0.8781	7142	0	0.05174	0	1	1	1	0.0

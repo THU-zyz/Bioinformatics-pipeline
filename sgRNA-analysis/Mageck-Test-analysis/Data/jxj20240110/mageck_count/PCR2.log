@@ -1,0 +1,67 @@
+INFO  @ Wed, 10 Jan 2024 21:27:26: Parameters: /public3/home/scg8403/.conda/envs/py37/bin/mageck count -l /public3/home/scg8403/Data/sgRNA/Data/sgRNA_library_Metabolic.csv -n PCR2 --sample-label PCR2 --fastq /public3/home/scg8403/Data/sgRNA/Data/Library-plasmid-PCR2-product_L3.fq --pdf-report 
+INFO  @ Wed, 10 Jan 2024 21:27:26: Welcome to MAGeCK v0.5.9.5. Command: count 
+INFO  @ Wed, 10 Jan 2024 21:27:26: Header line of the library file detected; skip the first line ... 
+INFO  @ Wed, 10 Jan 2024 21:27:26: Loading 7142 predefined sgRNAs. 
+WARNING @ Wed, 10 Jan 2024 21:27:26: There are 0 sgRNAs with duplicated sequences. 
+INFO  @ Wed, 10 Jan 2024 21:27:26: Parsing FASTQ file /public3/home/scg8403/Data/sgRNA/Data/Library-plasmid-PCR2-product_L3.fq... 
+INFO  @ Wed, 10 Jan 2024 21:27:26: Determining the trim-5 length of FASTQ file /public3/home/scg8403/Data/sgRNA/Data/Library-plasmid-PCR2-product_L3.fq... 
+INFO  @ Wed, 10 Jan 2024 21:27:26: Possible gRNA lengths:20 
+INFO  @ Wed, 10 Jan 2024 21:27:26: Processing 0M reads ... 
+INFO  @ Wed, 10 Jan 2024 21:27:31: Read length:268,267,266,263,269,265,262,261,295,277,264,270,298,259,296,257,294,260,293,297,292,256,229,246,291,252,283,250,230,249,241,255,251,272,258,290,231,271,240,237,288,278,279,284,253,254,273,234,238,275,287,244,281,289,226,236,243,227,235,274,225,228,245 
+INFO  @ Wed, 10 Jan 2024 21:27:31: Total tested reads: 100001, mapped: 89978(0.8997710022899771) 
+INFO  @ Wed, 10 Jan 2024 21:27:31: --trim-5 test data: (trim_length reads fraction) 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 63	87957	0.9775389539665251 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 62	1152	0.012803129653915401 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 64	569	0.006323768032185645 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 61	144	0.0016003912067394251 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 59	39	0.0004334392851585943 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 60	39	0.0004334392851585943 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 56	19	0.0002111627286670075 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 57	18	0.00020004890084242814 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 58	15	0.00016670741736869013 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 55	7	7.779679477205539e-05 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 54	6	6.668296694747605e-05 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 53	5	5.556913912289671e-05 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 91	4	4.4455311298317365e-05 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 65	1	1.1113827824579341e-05 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 76	1	1.1113827824579341e-05 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 78	1	1.1113827824579341e-05 
+INFO  @ Wed, 10 Jan 2024 21:27:31: 68	1	1.1113827824579341e-05 
+INFO  @ Wed, 10 Jan 2024 21:27:31: Auto determination of trim5 results: 63 
+INFO  @ Wed, 10 Jan 2024 21:27:31: Possible gRNA lengths:20 
+INFO  @ Wed, 10 Jan 2024 21:27:31: Processing 0M reads .. 
+INFO  @ Wed, 10 Jan 2024 21:27:33: Processing 1M reads .. 
+INFO  @ Wed, 10 Jan 2024 21:27:36: Processing 2M reads .. 
+INFO  @ Wed, 10 Jan 2024 21:27:39: Processing 3M reads .. 
+INFO  @ Wed, 10 Jan 2024 21:27:39: Total: 3219416. 
+INFO  @ Wed, 10 Jan 2024 21:27:39: Mapped: 2827086. 
+DEBUG @ Wed, 10 Jan 2024 21:27:39: Initial (total) size factor: 1.0 
+DEBUG @ Wed, 10 Jan 2024 21:27:39: Median factor: 1.0027624309392262 
+INFO  @ Wed, 10 Jan 2024 21:27:39: Final size factor: 1.0027624309392262 
+INFO  @ Wed, 10 Jan 2024 21:27:39: Summary of file /public3/home/scg8403/Data/sgRNA/Data/Library-plasmid-PCR2-product_L3.fq: 
+INFO  @ Wed, 10 Jan 2024 21:27:39: label	PCR2 
+INFO  @ Wed, 10 Jan 2024 21:27:39: reads	3219416 
+INFO  @ Wed, 10 Jan 2024 21:27:39: mappedreads	2827086 
+INFO  @ Wed, 10 Jan 2024 21:27:39: totalsgrnas	7142 
+INFO  @ Wed, 10 Jan 2024 21:27:39: zerosgrnas	0 
+INFO  @ Wed, 10 Jan 2024 21:27:39: giniindex	0.051744027695380446 
+INFO  @ Wed, 10 Jan 2024 21:27:39: Loading Rnw template file: /public3/home/scg8403/.conda/envs/py37/lib/python3.7/site-packages/mageck/count_report.Rmd. 
+DEBUG @ Wed, 10 Jan 2024 21:27:39: Setting up the visualization module... 
+INFO  @ Wed, 10 Jan 2024 21:27:39: Loading Rnw template file: /public3/home/scg8403/.conda/envs/py37/lib/python3.7/site-packages/mageck/fastq_template.Rnw. 
+DEBUG @ Wed, 10 Jan 2024 21:27:39: Setting up the visualization module... 
+INFO  @ Wed, 10 Jan 2024 21:27:39: Running command: cd ./; Rscript PCR2_countsummary.R 
+INFO  @ Wed, 10 Jan 2024 21:27:40: Command message: 
+INFO  @ Wed, 10 Jan 2024 21:27:40:   Writing to file PCR2_countsummary.tex 
+INFO  @ Wed, 10 Jan 2024 21:27:40:   Processing code chunks with options ... 
+INFO  @ Wed, 10 Jan 2024 21:27:40:    1 : keep.source term verbatim (label = funcdef, PCR2_countsummary.Rnw:28) 
+INFO  @ Wed, 10 Jan 2024 21:27:40:    2 : keep.source term tex (label = tab1, PCR2_countsummary.Rnw:174) 
+INFO  @ Wed, 10 Jan 2024 21:27:40:    
+INFO  @ Wed, 10 Jan 2024 21:27:40:   Error:  chunk 2 (label = tab1)  
+INFO  @ Wed, 10 Jan 2024 21:27:40:   Error in library(xtable) : there is no package called ‘xtable’ 
+INFO  @ Wed, 10 Jan 2024 21:27:40:   Execution halted 
+INFO  @ Wed, 10 Jan 2024 21:27:40:    
+INFO  @ Wed, 10 Jan 2024 21:27:40: End command message. 
+INFO  @ Wed, 10 Jan 2024 21:27:40: Running command: cd ./; rm -rf PCR2_countsummary-*.pdf 
+INFO  @ Wed, 10 Jan 2024 21:27:40: Command message: 
+INFO  @ Wed, 10 Jan 2024 21:27:40:    
+INFO  @ Wed, 10 Jan 2024 21:27:40: End command message. 
